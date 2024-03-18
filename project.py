@@ -56,6 +56,7 @@ class PriceMachine:
 
         with open(fname, mode='w', encoding='utf-8') as file:
             file.write("<html><body>")
+            self.data = sorted(self.data, key=lambda x: x[0])
             table = tabulate(self.data, headers=['Наименование', 'Цена', 'Вес', 'Файл', 'Цена за кг.'], tablefmt='html')
             file.write(table)
             file.write("</body></html>")
